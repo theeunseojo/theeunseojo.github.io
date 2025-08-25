@@ -1,0 +1,47 @@
+---
+layout: post
+title: "spring 개발일지 1"
+date: 2025-08-14 
+category: spring-project
+---
+
+# Spring 개발환경 셋팅 
+김영한님의 강의를 참고하여 만난 문제상황 정리
+
+## 프로젝트 목표
+- Spring Boot 프로젝트 실행
+- Gradle + JDK 세팅 과정 기록
+
+## 개발환경
+- macOS m1
+- Intellij IDEA Coummnuty Edition
+- Oracle JDK 17 
+- Spring Boot 3.X
+
+## 문제상황
+- Spring Initializer로 프로젝트 생성 후 JDK를 못찾아서 Run 할 수 없음 
+
+### 원인 
+- 프로젝트는 Java 17 요구 내가 깐 SDK 버전은 24 
+
+### 해결과정 
+- JDK 24 버전 삭제후 , 인텔리 제이로 17버전 다운로드 
+
+```bash
+/usr/libexec/java_home -V
+```
+
+```bash
+// 경로 확인 후 제거
+rm rf <경로>
+```
+
+- File -> Project Strcuture -> Project -> Project JDK 17 다운로드 
+
+- Modules 도 통일 
+- Project setting -> Gradle 도 17로 통일
+
+- Gradle Referesh 
+
+### 결론
+- 그냥 일단 JDK는 인텔리제이에서 맞는 버전 깔아서 사용하자 
