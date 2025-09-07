@@ -1,0 +1,156 @@
+---
+layout: post
+title: "연결리스트 구현"
+date: 2025-09-07 
+category: Data Structure
+---
+
+# 연결리스트 개념 정리 
+
+- 연결리스트란 ? 배열과 달리 삽입 및 삭제가 용이한 자료구조이다.
+
+
+# 구현 및 정리 
+
+## 기본적인 노드 구조 및 세팅 
+
+```cpp
+struct node* head = NULL;
+int size = 0;
+
+// 데이터와 다음 노드를 가리키는 포인터로 구성
+struct node{
+	int data;
+	struct node* next;
+};
+```
+
+## 노드 생성 및 초기화 
+
+```cpp
+node* create(int data){
+	// 노드 생성 및 초기화 
+	struct node* temp = new node;
+	temp->data = data;
+	temp->next = NULL;
+
+	return temp;
+}
+```
+
+## 노드 삽입 
+
+```cpp
+
+void insert(int t, int data){
+	node* prev = head;
+	int cnt = 0;
+
+	node* temp = create(data);
+
+	if(size < t) return;
+
+
+	// 아무것도 없을때 
+	if(size == 0 && t == 0){
+		head = temp;
+		size++;
+		return;
+	}
+
+	
+	// 맨 앞에 삽입하려고 할 경우 
+	if(t == 0){
+		temp->next = head;
+		head = temp;
+		size++;
+		return;
+	}
+
+	// 중간 혹은 뒤에 삽입할 경우 
+	else{
+		while(prev != NULL){
+			if(cnt + 1  == t){
+				temp->next = prev->next;
+				prev->next = temp;
+				size++;
+				return;
+			}
+			prev = prev->next;
+			cnt++;
+		}
+	}
+
+}
+```
+
+## 노드 삭제 
+
+```cpp
+void erase(int t){
+
+	node* prev = head;
+	int cnt = 0;
+	// 아무것도 없을때 
+	if(size == 0 || size <= t ) return;
+
+	// 맨 앞에 삭제 할때 
+	if(t == 0){
+		head = prev->next;
+		delete prev;
+		size--;
+		return;
+	}
+
+    // 중간 및 뒤에서 삭제 할때 
+	else{
+		while(prev != NULL){
+			if(cnt + 1 == t){
+				node *temp = prev->next;
+				prev->next = temp->next;
+				delete temp;
+				size--;
+				return;
+			}
+			prev = prev->next;
+			cnt++;
+		}
+	}
+
+}
+```
+## 순회 
+
+```cpp
+void traverse(){
+	node *curr = head;
+
+	while(curr != NULL){
+		cout << curr->data << " ";
+		curr = curr->next;
+	}
+	cout << "\n";
+}
+```
+
+## 조회하기
+
+```cpp
+node* find(int data){
+	node *curr = head;
+
+	while(curr->next != NULL){
+		if(curr->data == data){
+			return curr;
+		}
+		curr = curr->next;
+	}
+	
+	if(curr->data == data){
+		return curr;
+	}
+
+	return NULL;
+}
+
+```
