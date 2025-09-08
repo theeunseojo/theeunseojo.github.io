@@ -2,7 +2,7 @@
 layout: post
 title: "연결리스트 구현"
 date: 2025-09-07 
-category: Data Structure
+category: DataStructure
 ---
 
 # 연결리스트 개념 정리 
