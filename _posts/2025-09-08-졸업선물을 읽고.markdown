@@ -2,7 +2,7 @@
 layout: post
 title: "졸업선물을 읽고"
 date: 2025-09-08 
-category: 독서
+category: Reading
 ---
 
 ###다섯권의 독서
