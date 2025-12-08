@@ -52,12 +52,12 @@ em.flush();
 - list와 set으로 했을 경우 실제 쿼리는 어떨까?를 테스트해봤다.
 
 ## List
-<img src="./../public/img/jpa_collection_list.png">
+<img src="/public/img/jpa_collection_list.png">
 
 - 예상대로 전체 삭제를 진행 한 후, 남은 데이터를 삽입해준다. 
 
 ## Set
-<img src="./../public/img/jpa_collection_set.png" alt="Set">
+<img src="/public/img/jpa_collection_set.png" alt="Set">
 
 - 반면 Set을 사용했을 때는 전체 삭제가 이루어지지 않았다. 정확히 해당데이터를 하나만 삭제했기 때문이다.
 
